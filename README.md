@@ -1,10 +1,10 @@
 # 🚗 ML Project: Electric Vehicle Population Data Classification
-📌 Introduction
+## 📌 Introduction
 This Machine Learning project focuses on analyzing the Electric Vehicle Population Data registered in Washington State (USA). The main objective is to build a classification model to identify key patterns and features that determine the type of electric vehicle (Battery Electric Vehicle - BEV, or Plug-in Hybrid Electric Vehicle - PHEV) or its manufacturer.
 
 The model selection is centered on Decision Trees, given their interpretability, their ability to handle mixed categorical and numerical data well, and the nature of the dataset.
 
-🎯 Project Objectives
+## 🎯 Project Objectives
 EV Type Classification: Develop a model to classify whether a registered vehicle is a BEV (Battery Electric Vehicle) or a PHEV (Plug-in Hybrid Electric Vehicle).
 
 Pattern Analysis: Identify which characteristics (e.g., county, model year, electric range) are the most important predictors for the classification.
@@ -13,7 +13,7 @@ Visualization: Create visualizations that show the structure of the Decision Tre
 
 Model Evaluation: Measure the performance of the Decision Tree using appropriate metrics such as Accuracy, Confusion Matrix, and F1-Score.
 
-💾 Dataset
+## 💾 Dataset
 Dataset Name: Electric Vehicle Population Data
 
 Source: Washington State Department of Licensing (via Data.gov)
@@ -30,7 +30,7 @@ Make (Manufacturer).
 
 Model Year.
 
-🛠️ Methodology (Decision Trees)
+## 🛠️ Methodology (Decision Trees)
 
 The project will be developed through the following stages
 
@@ -51,7 +51,7 @@ The project will be developed through the following stages
      Interpretation: Analysis of the Feature Importance used by the tree for classification.
      Visualization of the final tree for project interpretability.
 
-💻 Requirements and Technologies
+## 💻 Requirements and Technologies
 The project runs in a Python environment and requires the following libraries
   Package                 Purpose
   Python                  Version 3.x
@@ -61,7 +61,7 @@ The project runs in a Python environment and requires the following libraries
   Matplotlib / Seaborn    Data visualization (EDA) and results.
   Graphviz (Optional)     Graphical visualization of the Decision Tree.
 
-  Installing Dependencies
+ ## Installing Dependencies
   Bash
 
 pip install pandas numpy scikit-learn matplotlib seaborn
