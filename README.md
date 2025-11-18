@@ -1,6 +1,5 @@
 # 🚗 ML Project: Electric Vehicle Population Data Classification
 ## 📌 Introduction
-## 📌 Introduction
 
 This Machine Learning project focuses on analyzing the **Electric Vehicle Population Data** registered in Washington State (USA). The main objective is to build a classification model to identify key patterns and features that determine the type of electric vehicle (Battery Electric Vehicle - BEV, or Plug-in Hybrid Electric Vehicle - PHEV) or its manufacturer.
 
