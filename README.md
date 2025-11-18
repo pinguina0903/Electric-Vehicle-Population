@@ -5,13 +5,13 @@ This Machine Learning project focuses on analyzing the Electric Vehicle Populati
 The model selection is centered on Decision Trees, given their interpretability, their ability to handle mixed categorical and numerical data well, and the nature of the dataset.
 
 ## 🎯 Project Objectives
-EV Type Classification: Develop a model to classify whether a registered vehicle is a BEV (Battery Electric Vehicle) or a PHEV (Plug-in Hybrid Electric Vehicle).
+**EV (Electric Vehicle) Type Classification**: Develop a model to classify whether a registered vehicle is a **BEV (Battery Electric Vehicle)** or a **PHEV (Plug-in Hybrid Electric Vehicle)**.
 
-Pattern Analysis: Identify which characteristics (e.g., county, model year, electric range) are the most important predictors for the classification.
+**Pattern Analysis**: Identify which characteristics (e.g., county, model year, electric range) are the **most important predictors** for the classification.
 
-Visualization: Create visualizations that show the structure of the Decision Tree, making the model interpretable and easy to explain.
+**Visualization**: Create visualizations that show the structure of the Decision Tree, making the model **interpretable** and easy to explain.
 
-Model Evaluation: Measure the performance of the Decision Tree using appropriate metrics such as Accuracy, Confusion Matrix, and F1-Score.
+**Model Evaluation**: Measure the performance of the Decision Tree using appropriate metrics such as Accuracy, Confusion Matrix, and F1-Score.
 
 ## 💾 Dataset
 Dataset Name: Electric Vehicle Population Data
@@ -62,7 +62,6 @@ The project runs in a Python environment and requires the following libraries
   Graphviz (Optional)     Graphical visualization of the Decision Tree.
 
  ## Installing Dependencies
-  Bash
-
-pip install pandas numpy scikit-learn matplotlib seaborn
+>  Bash
+>  pip install pandas numpy scikit-learn matplotlib seaborn
 
