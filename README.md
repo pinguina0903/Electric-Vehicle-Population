@@ -18,7 +18,10 @@ The model selection is centered on **Decision Trees**, given their interpretabil
 
 * **Dataset Name:** Electric Vehicle Population Data
 * **Source:** [Washington State Department of Licensing (via Data.gov)](https://catalog.data.gov/dataset/electric-vehicle-population-data)
+* **Public** This dataset is intended for public access and use.
 * **Description:** The dataset contains detailed information on all licensed alternative fuel vehicles in Washington State.
+* Metadata Created Date	November 10, 2020
+* Metadata Updated Date	October 18, 2025
 * **Key Variables of Interest:**
     * `Electric Vehicle Type` (Target variable for classification).
     * `County` / `City` (Geographic variables).
@@ -33,7 +36,7 @@ The model selection is centered on **Decision Trees**, given their interpretabil
 The project will be developed through the following stages:
 
 ### 1. Data Preparation and Cleaning
-* Loading the dataset (`.csv`).
+* Loading the dataset (`.csv`). URL: https://data.wa.gov/api/views/f6w7-q2d2/rows.csv?accessType=DOWNLOAD
 * Handling missing values (especially in `Electric Range` and geographic variables).
 * Encoding categorical variables (e.g., *One-Hot Encoding* for `Make` or `County`), required for Scikit-learn implementation.
 
@@ -71,3 +74,100 @@ The project runs in a Python environment and requires the following libraries:
 
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn
+
+## License
+This project is developed for educational purposes as part of the ML Zoomcamp course.
+Open Data Commons Open Database License (ODbL) v1.0.  Please see the follow link:
+https://opendatacommons.org/licenses/odbl/1-0/
+
+Acknowledgments
+DataTalksClub for the Machine Learning Zoomcamp
+Data.Gov for providing the data
+
+
+# STEPS
+
+# --- 1. Environment Setup and Data Loading ---
+# This section loads the necessary libraries and attempts to download the dataset.
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+# URL for the Electric Vehicle Population Data dataset (raw CSV link)
+DATA_URL = 'https://raw.githubusercontent.com/datasets/ev-population-data/main/data/ev_population_data.csv'
+
+# Load the data directly from the URL
+try:
+    df = pd.read_csv(DATA_URL)
+    print("Data loaded successfully!")
+except Exception as e:
+    print(f"Error loading data: {e}")
+    df = pd.DataFrame() # Use an empty DataFrame if loading fails
+
+# --- 2. Initial Exploration and Cleaning ---
+
+if not df.empty:
+    print("\n--- First 5 rows ---")
+    print(df.head())
+
+    # Identify the target column
+    TARGET_COLUMN = 'Electric Vehicle Type'
+    
+    # Simple handling of missing values:
+    # Fill NaN in the 'Electric Range' column with the mean.
+    if 'Electric Range' in df.columns:
+        df['Electric Range'] = df['Electric Range'].fillna(df['Electric Range'].mean())
+
+    # Drop rows with missing values in the target variable
+    df.dropna(subset=[TARGET_COLUMN], inplace=True)
+
+    print(f"\nDistribution of the target variable ('{TARGET_COLUMN}'):")
+    print(df[TARGET_COLUMN].value_counts())
+
+    # --- 3. Preparation for Decision Trees ---
+    
+    # Define the predictor variables (features)
+    FEATURES = ['Model Year', 'Electric Range', 'Make', 'County']
+
+    # Subset the data
+    data = df[FEATURES + [TARGET_COLUMN]].copy()
+
+    # One-Hot Encoding for categorical variables ('Make' and 'County')
+    data_encoded = pd.get_dummies(data, columns=['Make', 'County'], drop_first=True)
+    
+    # Prepare the X (features) and y (target) matrices
+    X = data_encoded.drop(TARGET_COLUMN, axis=1)
+    y = data_encoded[TARGET_COLUMN]
+
+    # Split the data into training and testing sets (80% / 20%)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    print(f"\nData ready for modeling:")
+    print(f"  X_train size: {X_train.shape}")
+    print(f"  X_test size: {X_test.shape}")
+
+    # --- 4. Decision Tree Modeling and Prediction ---
+
+    # Create and train the Decision Tree model
+    model = DecisionTreeClassifier(random_state=42)
+    model.fit(X_train, y_train)
+
+    # Make predictions
+    y_pred = model.predict(X_test)
+
+    # Evaluate the model
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    print("\n--- Decision Tree Results ---")
+    print(f"Model Accuracy on the test set: {accuracy:.4f}")
+    
+else:
+    print("Could not proceed with modeling due to data loading error.")
+
+
+
+
