@@ -5,6 +5,8 @@ This Machine Learning project focuses on analyzing the **Electric Vehicle Popula
 
 The model selection is centered on **Decision Trees**, given their interpretability, their ability to handle mixed categorical and numerical data well, and the nature of the dataset.
 
+->>>>>>NOTE: 2 points: Problem is described in README with enough context, so it's clear what the problem is and how the solution will be used
+
 ## 🎯 Project Objectives
 
 1.  **EV (Electric Vehicle) Type Classification:** Develop a model to classify whether a registered vehicle is a **BEV (Battery Electric Vehicle)** or a **PHEV (Plug-in Hybrid Electric Vehicle)**.
@@ -31,29 +33,63 @@ The model selection is centered on **Decision Trees**, given their interpretabil
 
 ---
 
-## 🛠️ Methodology (Decision Trees)
+## 🛠️ Methodology
 
-The project will be developed through the following stages:
+The project will be developed through the following stages and files
 
-### 1. Data Preparation and Cleaning
+### 1. Data Preparation and Cleaning and Exploratory Data Analysis (EDA)
+File: 1_notebook.ipynb
+Data Preparation
 * Loading the dataset (`.csv`). URL: https://data.wa.gov/api/views/f6w7-q2d2/rows.csv?accessType=DOWNLOAD
 * Handling missing values (especially in `Electric Range` and geographic variables).
 * Encoding categorical variables (e.g., *One-Hot Encoding* for `Make` or `County`), required for Scikit-learn implementation.
-
-### 2. Exploratory Data Analysis (EDA)
+Exploratory Data Analysis
 * Visualization of the distribution of the target variable (`Electric Vehicle Type`).
 * Bar charts to analyze the EV distribution by `County` and `Make`.
+* Model selection process and parameter tuning
 
-### 3. Decision Tree Modeling
+--------
+Notebook (suggested name - notebook.ipynb) with
+Data preparation and data cleaning
+EDA, feature importance analysis
+Model selection process and parameter tuning
+----------------------------
+
+* ### 2. Model training
+File: 2_train.ipynb
 * Splitting the data into training and testing sets (Train/Test Split).
+* ******revisar modelos
 * Training a `DecisionTreeClassifier` model.
 * **Hyperparameter Tuning:** Optimizing the model (e.g., `max_depth`, `min_samples_leaf`) using cross-validation to prevent *overfitting*.
 
-### 4. Evaluation and Results
+* ### 3. Evaluation and Results
+File: 03_analysis.ipynb
 * Generation of the **Confusion Matrix**.
 * Calculation of performance metrics (Accuracy, Recall, F1-Score).
 * **Interpretation:** Analysis of the **Feature Importance** used by the tree for classification.
 * Visualization of the final tree for project interpretability.
+
+### 4. Deployment
+Files:
+
+Preparation
+* Saving it to a file (e.g. pickle) or saving it with specialized software (BentoML)
+* Script predict.py (suggested name)
+* Loading the model
+* Serving it via a web service (with Flask or specialized software - BentoML, KServe, etc)
+* Files with dependencies
+* Pipenv and Pipenv.lock if you use Pipenv or equivalents: conda environment file, requirements.txt or pyproject.toml
+* Dockerfile for running the service
+
+Evidence
+URL to the service you deployed or
+Video or image of how you interact with the deployed service
+
+
+
+
+
+
 
 ---
 
@@ -82,10 +118,13 @@ Open Data Commons Open Database License (ODbL) v1.0.  Please see the follow link
 https://opendatacommons.org/licenses/odbl/1-0/
 
 ## Acknowledgments
-DataTalksClub for the Machine Learning Zoomcamp
+DataTalksClub for the coordination and support ofthe Machine Learning Zoomcamp, 2025 edition
 
 Data.Gov for providing the data
 
+
+## Evaluation Criteria
+https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/master/projects
 
 # STEPS
 
