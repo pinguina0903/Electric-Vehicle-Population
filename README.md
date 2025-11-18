@@ -71,16 +71,17 @@ The project runs in a Python environment and requires the following libraries:
 | **Graphviz (Optional)** | Graphical visualization of the Decision Tree. |
 
 ### Installing Dependencies
-
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
-
+>
+> ```bash
+> pip install pandas numpy scikit-learn matplotlib seaborn
+>
+> 
 ## License
 This project is developed for educational purposes as part of the ML Zoomcamp course.
 Open Data Commons Open Database License (ODbL) v1.0.  Please see the follow link:
 https://opendatacommons.org/licenses/odbl/1-0/
 
-Acknowledgments
+## Acknowledgments
 DataTalksClub for the Machine Learning Zoomcamp
 Data.Gov for providing the data
 
