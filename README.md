@@ -31,8 +31,10 @@ Make (Manufacturer).
 Model Year.
 
 🛠️ Methodology (Decision Trees)
+
 The project will be developed through the following stages
-:1. Data Preparation and Cleaning
+
+ 1. Data Preparation and Cleaning
     Loading the dataset (.csv).
     Handling missing values (especially in Electric Range and geographic variables).
     Encoding categorical variables (e.g., One-Hot Encoding for Make or County), required for Scikit-learn implementation.
